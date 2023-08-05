@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Push Notification</title>
+</head>
+<body>
+    <h1>Push Notification Test</h1>
+    <hr/>
+    <p>Subscribe</p>
+    <p><button id="notifications">OK</button></p>
+</body>
+<script type="application/javascript" src="/app.js"></script>
+<script type="application/javascript">
+    const button = document.getElementById("notifications");
+    button.addEventListener("click", () => {
+        Notification.requestPermission().then((result) => {
+            if (result === "granted") {
+                randomNotification();
+            }
+        });
+    });
+
+    function randomNotification() {
+        // const randomItem = Math.floor(Math.random() * games.length);
+        const notifTitle = 'notification subscribe test';
+        const notifBody = 'Do you accept';
+        // const notifImg = `data/img/${games[randomItem].slug}.jpg`;
+        const options = {
+            body: notifBody,
+            // icon: notifImg,
+        };
+        new Notification(notifTitle, options);
+        setTimeout(randomNotification, 30000);
+    }
+</script>
+</html>
