@@ -10,12 +10,15 @@ if ("serviceWorker" in navigator) {
 async function subscribeToPush() {
     if (navigator.serviceWorker) {
 
+        console.info("if navigator service worker");
         const reg = await navigator.serviceWorker.getRegistration();
 
         if (reg && reg.pushManager) {
 
+            console.info("re && pushManager");
             const subscription = await reg.pushManager.getSubscription();
 
+            console.info("subscription: ", subscription);
             if (!subscription) {
 
                 console.info("existe subscription");
