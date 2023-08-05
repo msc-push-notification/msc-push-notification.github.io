@@ -18,6 +18,7 @@ async function subscribeToPush() {
 
             if (!subscription) {
 
+                console.info("existe subscription");
                 // const key = await fetch("https://example.com/vapid_key");
                 // const keyData = await key.text();
 
@@ -25,6 +26,8 @@ async function subscribeToPush() {
                     applicationServerKey: "msc-push-notification",
                     userVisibleOnly: true
                 });
+
+                console.info("sub: ", sub);
 
                 await fetch("https://example.com/push_subscribe", {
                     method: "POST",

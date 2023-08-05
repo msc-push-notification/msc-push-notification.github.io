@@ -18,6 +18,7 @@
         Notification.requestPermission().then((result) => {
             if (result === "granted") {
                 // randomNotification();
+                console.info("request permission");
                 subscribeToPush();
 
             }

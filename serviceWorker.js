@@ -1,4 +1,4 @@
-const CACHE_NAME = "push-notification-v0"
+const CACHE_NAME = "push-notification-v0.1"
 const assets = [
     "/",
     "/index.html",
@@ -16,6 +16,7 @@ self.addEventListener("install", installEvent => {
 
 self.addEventListener("push", (event) => {
     const payload = event.data?.text() ?? "no payload";
+    console.info("event listener push");
     event.waitUntil(
         self.registration.showNotification("ServiceWorker Cookbook", {
             body: payload,
